@@ -1,58 +1,48 @@
 package kodlama.io.rentacar.business.concretes;
 
 import kodlama.io.rentacar.business.abstracts.BrandService;
-import kodlama.io.rentacar.entities.concretes.Brand;
-import kodlama.io.rentacar.repository.abstracts.BrandRepository;
+import kodlama.io.rentacar.entities.Brand;
+import kodlama.io.rentacar.repository.BrandRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class BrandManager implements BrandService {
 
     private final BrandRepository brandRepository;
 
-    @Autowired
-    public BrandManager(BrandRepository brandRepository) {
-        this.brandRepository = brandRepository;
-    }
-
     @Override
     public List<Brand> getAll() {
-        if (brandRepository.getAll().size() == 0) throw new RuntimeException("marka bulunamadı");
-        return brandRepository.getAll();
-
-
+        return brandRepository.findAll();
     }
 
     @Override
     public Brand getById(int id) {
-        return brandRepository.getById(id);
+        return brandRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("böyle bir marka mevcut değildir"));
     }
 
     @Override
     public Brand add(Brand brand) {
-        validateBrandName(brand);
-        return brandRepository.add(brand);
+        return brandRepository.save(brand);
     }
-
 
     @Override
     public Brand update(int id, Brand brand) {
-        validateBrandName(brand);
-        return brandRepository.update(id, brand);
+        brand.setId(id);
+        return brandRepository.save(brand);
     }
 
     @Override
     public void delete(int id) {
-        brandRepository.delete(id);
+        brandRepository.deleteById(id);
     }
 
-    private void validateBrandName(Brand brand) {
-        if (brand.getName().length() == 0 || brand.getName().length() > 15)
-            throw new IllegalArgumentException("length must be between zero and 15");
+    //business rules
+    private void checkIfBrandExists(int id) {
+        if (!brandRepository.existsById(id)) throw new IllegalArgumentException("böyle bir marka mevcut değildir");
     }
-
 }

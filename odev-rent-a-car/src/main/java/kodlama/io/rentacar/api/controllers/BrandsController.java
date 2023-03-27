@@ -1,7 +1,8 @@
 package kodlama.io.rentacar.api.controllers;
 
 import kodlama.io.rentacar.business.abstracts.BrandService;
-import kodlama.io.rentacar.entities.concretes.Brand;
+import kodlama.io.rentacar.entities.Brand;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,17 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/brands")
-
-
+@RequestMapping("/api/brands")
+@AllArgsConstructor
 public class BrandsController {
 
     private final BrandService brandService;
 
-    @Autowired
-    public BrandsController(BrandService brandService) {
-        this.brandService = brandService;
-    }
 
     @GetMapping
     public List<Brand> getAll() {
@@ -42,9 +38,10 @@ public class BrandsController {
         return brandService.update(id, brand);
 
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int id){
+    public void delete(@PathVariable int id) {
         brandService.delete(id);
     }
 }
