@@ -3,10 +3,12 @@ package kodlama.io.ecommerce.entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import kodlama.io.ecommerce.entities.enums.Status;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -14,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "products")
+
 
 public class Product {
     @Id
@@ -27,6 +29,6 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Status status;
     @ManyToMany(fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonManagedReference //sonsuz döngü olmaması için
     private Set<Category> categories = new HashSet<>();
 }

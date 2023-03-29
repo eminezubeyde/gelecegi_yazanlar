@@ -14,30 +14,30 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping("getall")
     public List<Product> getAll() {
         return productService.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("get/{id}") // end pointlerin isimlerini değiştir.
     public Product getById(@PathVariable int id) {
         return productService.getById(id);
     }
 
-    @PostMapping
+    @PostMapping("create")
     @ResponseStatus(HttpStatus.CREATED)
     public Product create(@RequestBody Product product) {
         return productService.add(product);
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int id) {
         productService.delete(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     public Product update(@RequestBody Product product, @PathVariable int id) {
         return productService.update(product, id);
     }
