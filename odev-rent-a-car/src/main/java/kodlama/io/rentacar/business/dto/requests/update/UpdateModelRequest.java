@@ -1,17 +1,15 @@
-package kodlama.io.rentacar.business.dto.responses.create;
+package kodlama.io.rentacar.business.dto.requests.update;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBrandResponse {
-    private int id;
+public class UpdateModelRequest {
+    private int brandId;
     private String name;
-
 }
