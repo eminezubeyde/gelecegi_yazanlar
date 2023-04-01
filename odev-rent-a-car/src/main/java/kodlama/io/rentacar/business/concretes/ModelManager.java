@@ -46,6 +46,7 @@ public class ModelManager implements ModelService {
     public CreateModelResponse add(CreateModelRequest request) {
         checkIfModelExistsByName(request.getName());
         Model model=mapper.map(request,Model.class);
+        model.setId(0);
         modelRepository.save(model);
         CreateModelResponse response=mapper.map(model,CreateModelResponse.class);
         return response;

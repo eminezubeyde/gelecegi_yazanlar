@@ -12,7 +12,7 @@ public class ModelMapperConfig {
     @Bean
     public ModelMapper getModelMapper() {
         ModelMapper modelMapper=new ModelMapper() ;
-        modelMapper.getConfiguration().setAmbiguityIgnored(true).setMatchingStrategy(MatchingStrategies.STRICT);
+        //modelMapper.getConfiguration().setAmbiguityIgnored(true).setMatchingStrategy(MatchingStrategies.STRICT);
         return modelMapper;
     }
 }
