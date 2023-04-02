@@ -1,4 +1,4 @@
-package kodlama.io.rentacar.configuration.mappers;
+package kodlama.io.rentacar.core.mappers;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -12,7 +12,7 @@ public class ModelMapperConfig {
     @Bean
     public ModelMapper getModelMapper() {
         ModelMapper modelMapper=new ModelMapper() ;
-        //modelMapper.getConfiguration().setAmbiguityIgnored(true).setMatchingStrategy(MatchingStrategies.STRICT);
+        modelMapper.getConfiguration().setAmbiguityIgnored(true).setMatchingStrategy(MatchingStrategies.STRICT);
         return modelMapper;
     }
 }

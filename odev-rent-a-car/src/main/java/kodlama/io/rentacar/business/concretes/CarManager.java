@@ -69,6 +69,15 @@ public class CarManager implements CarService {
         repository.deleteById(id);
 
     }
+
+    @Override
+    public void changeState(int id, int state) {
+        checkIfCarExists(id);
+        Car car = repository.findById(id).orElseThrow();
+        car.setState(state);
+        repository.save(car);
+    }
+
     private void checkIfCarExists(int id) {
         if (!repository.existsById(id)) throw new IllegalArgumentException("böyle bir araba mevcut değildir");
     }

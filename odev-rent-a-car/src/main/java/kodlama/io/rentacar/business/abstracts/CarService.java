@@ -26,4 +26,5 @@ public interface CarService {
     UpdateCarResponse update(int id, UpdateCarRequest request);
 
     void delete(int id);
+    void changeState(int id, int state);
 }

@@ -45,7 +45,7 @@ public class BrandManager implements BrandService {
     public CreateBrandResponse add(CreateBrandRequest request) {
         checkIfBrandExistsByName(request.getName());
         Brand brand = mapper.map(request, Brand.class);
-        brand.setId(0);
+       // brand.setId(0);
         repository.save(brand);
         CreateBrandResponse response = mapper.map(brand, CreateBrandResponse.class);
         return response;

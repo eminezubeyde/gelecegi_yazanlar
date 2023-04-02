@@ -46,7 +46,6 @@ public class ModelManager implements ModelService {
     public CreateModelResponse add(CreateModelRequest request) {
         checkIfModelExistsByName(request.getName());
         Model model=mapper.map(request,Model.class);
-        model.setId(0);
         modelRepository.save(model);
         CreateModelResponse response=mapper.map(model,CreateModelResponse.class);
         return response;
@@ -71,7 +70,7 @@ public class ModelManager implements ModelService {
 
     private void checkIfModelExistsById (int id){
         if(!modelRepository.existsById(id)) {
-            throw new RuntimeException("böyle bir model mevcur değil");
+            throw new RuntimeException("böyle bir model mevcut değil");
         }
     }
 

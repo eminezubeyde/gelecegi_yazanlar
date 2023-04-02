@@ -1,5 +1,6 @@
 package kodlama.io.rentacar.business.dto.requests.create;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBrandRequest {
-    private String name;
+public class CreateMaintenanceRequest {
+    private int carId;
+    private String description;
 }
