@@ -1,6 +1,5 @@
 package kodlama.io.ecommerce.business.dto.responses.get;
 
-import kodlama.io.ecommerce.business.dto.CategoryDto;
 import kodlama.io.ecommerce.entities.enums.Status;
 import lombok.Getter;
 import lombok.Setter;

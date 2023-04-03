@@ -1,11 +1,12 @@
 package kodlama.io.ecommerce.business.concretes;
 
 import kodlama.io.ecommerce.business.abstracts.ProductService;
-import kodlama.io.ecommerce.business.dto.CategoryDto;
 import kodlama.io.ecommerce.business.dto.requests.create.CreateProductRequest;
 import kodlama.io.ecommerce.business.dto.responses.create.CreateProductResponse;
 import kodlama.io.ecommerce.business.dto.responses.get.GetAllProductResponse;
+import kodlama.io.ecommerce.business.dto.responses.get.GetCategoryResponse;
 import kodlama.io.ecommerce.business.dto.responses.get.GetProductResponse;
+import kodlama.io.ecommerce.business.mapping.abstracts.CategoryConverter;
 import kodlama.io.ecommerce.business.mapping.abstracts.ProductConverter;
 import kodlama.io.ecommerce.entities.Category;
 import kodlama.io.ecommerce.entities.Product;
@@ -15,12 +16,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class ProductManager implements ProductService {
     private final ProductRepository repository;
     private final ProductConverter productConverter;
+    private final CategoryConverter categoryConverter;
 
 
     @Override
@@ -46,20 +49,20 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public List<GetAllProductResponse> getAll() {
-        List<Product> products = repository.findAll();
-        List<GetAllProductResponse> productDtoList = new ArrayList<>();
-        for (Product product : products) {
-            GetAllProductResponse response = new GetAllProductResponse();
-            response.setName(product.getName());
-            response.setId(product.getId());
-            response.setDescription(product.getDescription());
-            response.setUnitPrice(product.getUnitPrice());
-            response.setStatus(product.getStatus());
-            response.setQuantity(product.getQuantity());
-            productDtoList.add(response);
-        }
-        return productDtoList;
+    public List<GetProductResponse> getAll() {
+        /*
+       List<Product> productList=repository.findAll();
+       List<GetProductResponse> responseList=new ArrayList<>();
+       for( Product x: productList){
+           GetProductResponse response=productConverter.productToGetProductResponse(product);
+           responseList.add(response);
+       }
+         */
+
+
+
+       return repository.findAll().stream().map(productConverter::productToGetProductResponse).toList();
+
     }
 
     @Override
@@ -68,23 +71,7 @@ public class ProductManager implements ProductService {
         if (product == null) {
             return null;
         }
-        GetProductResponse response = new GetProductResponse();
-        productConverter.productToCreateProductResponse(product);
-
-
-        List<Category> categories = product.getCategories().stream().toList();
-        List<CategoryDto> categoryDtoList = new ArrayList<>();
-        if (!categories.isEmpty()) {
-            for (Category category : categories) {
-                CategoryDto categoryDto = new CategoryDto();
-                categoryDto.setName(category.getName());
-                categoryDto.setId(category.getId());
-                categoryDtoList.add(categoryDto);
-            }
-            response.setCategoryList(categoryDtoList);
-        }
-
-        return response;
+        return productConverter.productToGetProductResponse(product);
     }
 
 

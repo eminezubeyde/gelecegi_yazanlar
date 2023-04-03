@@ -15,7 +15,7 @@ public interface ProductService {
 
     Product update(Product product, int id);
 
-    List<GetAllProductResponse> getAll();
+    List<GetProductResponse> getAll();
 
     GetProductResponse getById(int id);
 }

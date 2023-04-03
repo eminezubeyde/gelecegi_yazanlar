@@ -1,6 +1,5 @@
 package kodlama.io.ecommerce.business.dto.responses.get;
 
-import kodlama.io.ecommerce.business.dto.CategoryDto;
 import kodlama.io.ecommerce.entities.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +19,5 @@ public class GetProductResponse {
     private double unitPrice;
     private String description;
     private Status status;
-    private List<CategoryDto> categoryList;
+    private List<GetCategoryResponse> categoryList;
 }
