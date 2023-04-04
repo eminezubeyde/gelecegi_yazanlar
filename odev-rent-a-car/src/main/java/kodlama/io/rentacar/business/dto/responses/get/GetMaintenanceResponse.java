@@ -12,8 +12,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetMaintenanceResponse {
-    private int id;
     private int carId;
-    private String description;
-    private LocalDateTime createdAt;
+    private String information;
+    private boolean isCompleted;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+
 }

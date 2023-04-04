@@ -14,16 +14,16 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "maintenances")
 public class Maintenance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String description;
-    private boolean isFinished = false;
+    private String information;
+    private boolean isCompleted;
 
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
 
     @ManyToOne

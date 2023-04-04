@@ -13,7 +13,6 @@ public class CreateCarRequest {
 
     private int modelYear;
     private String plate;
-    private int state;
     private double dailyPrice;
     private int modelId;
     private int brandId;

@@ -19,9 +19,10 @@ import java.util.List;
 
 public class CarController {
     private final CarService carService;
+
     @GetMapping
-    public List<GetAllCarsResponse> getAll() {
-        return carService.getAll();
+    public List<GetAllCarsResponse> getAll(@RequestParam(defaultValue = "true") boolean includeMaintenance) {
+        return carService.getAll(includeMaintenance);
     }
 
     @GetMapping("/{id}")

@@ -18,5 +18,5 @@ public class GetAllCarsResponse {
     private int modelId;
     private int brandId;
     private String modelName;
-    private String brandName;
+    private String modelBrandName;
 }
