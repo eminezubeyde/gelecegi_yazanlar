@@ -4,8 +4,8 @@ import kodlama.io.rentacar.business.abstracts.ModelService;
 import kodlama.io.rentacar.business.dto.requests.create.CreateModelRequest;
 import kodlama.io.rentacar.business.dto.requests.update.UpdateModelRequest;
 import kodlama.io.rentacar.business.dto.responses.create.CreateModelResponse;
-import kodlama.io.rentacar.business.dto.responses.get.GetAllModelResponse;
-import kodlama.io.rentacar.business.dto.responses.get.GetModelResponse;
+import kodlama.io.rentacar.business.dto.responses.get.model.GetAllModelsResponse;
+import kodlama.io.rentacar.business.dto.responses.get.model.GetModelResponse;
 import kodlama.io.rentacar.business.dto.responses.update.UpdateModelResponse;
 import kodlama.io.rentacar.entities.Model;
 import kodlama.io.rentacar.repository.ModelRepository;
@@ -22,11 +22,11 @@ public class ModelManager implements ModelService {
     private final ModelMapper mapper;
 
     @Override
-    public List<GetAllModelResponse> getAll() {
+    public List<GetAllModelsResponse> getAll() {
         List<Model> models=modelRepository.findAll();
-        List<GetAllModelResponse> responses=models.
+        List<GetAllModelsResponse> responses=models.
                 stream()
-                .map(model -> mapper.map(model, GetAllModelResponse.class))
+                .map(model -> mapper.map(model, GetAllModelsResponse.class))
                 .toList();
 
         return responses;

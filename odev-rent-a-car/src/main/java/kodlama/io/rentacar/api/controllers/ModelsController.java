@@ -4,8 +4,8 @@ import kodlama.io.rentacar.business.abstracts.ModelService;
 import kodlama.io.rentacar.business.dto.requests.create.CreateModelRequest;
 import kodlama.io.rentacar.business.dto.requests.update.UpdateModelRequest;
 import kodlama.io.rentacar.business.dto.responses.create.CreateModelResponse;
-import kodlama.io.rentacar.business.dto.responses.get.GetAllModelResponse;
-import kodlama.io.rentacar.business.dto.responses.get.GetModelResponse;
+import kodlama.io.rentacar.business.dto.responses.get.model.GetAllModelsResponse;
+import kodlama.io.rentacar.business.dto.responses.get.model.GetModelResponse;
 import kodlama.io.rentacar.business.dto.responses.update.UpdateModelResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class ModelsController {
     private final ModelService modelService;
 
     @GetMapping
-    public List<GetAllModelResponse> getAll() {
+    public List<GetAllModelsResponse> getAll() {
         return modelService.getAll();
     }
 
