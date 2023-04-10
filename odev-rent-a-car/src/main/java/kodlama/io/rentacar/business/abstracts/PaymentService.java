@@ -6,6 +6,7 @@ import kodlama.io.rentacar.business.dto.responses.create.CreatePaymentResponse;
 import kodlama.io.rentacar.business.dto.responses.get.payment.GetAllPaymentsResponse;
 import kodlama.io.rentacar.business.dto.responses.get.payment.GetPaymentResponse;
 import kodlama.io.rentacar.business.dto.responses.update.UpdatePaymentResponse;
+import kodlama.io.rentacar.core.dto.CreateRentalPaymentRequest;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
@@ -16,4 +17,5 @@ public interface PaymentService {
     CreatePaymentResponse add(CreatePaymentRequest request);
     UpdatePaymentResponse update(int id,UpdatePaymentRequest request);
     void delete(int id);
+    void processRentalPayment(CreateRentalPaymentRequest request);
 }

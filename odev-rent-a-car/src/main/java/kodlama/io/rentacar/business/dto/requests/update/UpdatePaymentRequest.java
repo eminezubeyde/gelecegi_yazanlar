@@ -1,5 +1,6 @@
 package kodlama.io.rentacar.business.dto.requests.update;
 
+import kodlama.io.rentacar.business.dto.requests.PaymentRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,12 +10,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdatePaymentRequest {
-    private String cardNumber;
-    private String cardHolder;
-    private int cardExpirationYear;
-    private int cardExpirationMonth;
-    private String cardCvv;
+public class UpdatePaymentRequest extends PaymentRequest {
+
     private double balance;
 
 }
