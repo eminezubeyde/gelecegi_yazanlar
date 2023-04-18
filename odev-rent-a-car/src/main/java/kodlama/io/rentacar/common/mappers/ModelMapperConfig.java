@@ -1,4 +1,4 @@
-package kodlama.io.rentacar.core.mappers;
+package kodlama.io.rentacar.common.mappers;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
