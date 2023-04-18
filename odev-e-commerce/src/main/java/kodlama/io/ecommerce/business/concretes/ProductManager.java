@@ -3,20 +3,15 @@ package kodlama.io.ecommerce.business.concretes;
 import kodlama.io.ecommerce.business.abstracts.ProductService;
 import kodlama.io.ecommerce.business.dto.requests.create.CreateProductRequest;
 import kodlama.io.ecommerce.business.dto.responses.create.CreateProductResponse;
-import kodlama.io.ecommerce.business.dto.responses.get.GetAllProductResponse;
-import kodlama.io.ecommerce.business.dto.responses.get.GetCategoryResponse;
 import kodlama.io.ecommerce.business.dto.responses.get.GetProductResponse;
 import kodlama.io.ecommerce.business.mapping.abstracts.CategoryConverter;
 import kodlama.io.ecommerce.business.mapping.abstracts.ProductConverter;
-import kodlama.io.ecommerce.entities.Category;
 import kodlama.io.ecommerce.entities.Product;
 import kodlama.io.ecommerce.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
