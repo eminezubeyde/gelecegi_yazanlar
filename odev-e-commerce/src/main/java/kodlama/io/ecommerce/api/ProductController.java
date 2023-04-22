@@ -1,10 +1,11 @@
-package kodlama.io.ecommerce.api.controllers;
+package kodlama.io.ecommerce.api;
 
 import kodlama.io.ecommerce.business.abstracts.ProductService;
+import kodlama.io.ecommerce.business.concretes.ProductNotFoundException;
+import kodlama.io.ecommerce.business.dto.requests.UpdateProductRequest;
 import kodlama.io.ecommerce.business.dto.requests.create.CreateProductRequest;
 import kodlama.io.ecommerce.business.dto.responses.create.CreateProductResponse;
-import kodlama.io.ecommerce.business.dto.responses.get.GetAllProductResponse;
-import kodlama.io.ecommerce.business.dto.responses.get.GetProductResponse;
+import kodlama.io.ecommerce.business.dto.responses.get.ProductDTO;
 import kodlama.io.ecommerce.entities.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,12 +20,12 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("getAll")
-    public List<GetProductResponse> getAll() {
+    public List<ProductDTO> getAll() {
         return productService.getAll();
     }
 
     @GetMapping("getById") // end pointlerin isimlerini değiştir.
-    public GetProductResponse getById(@RequestParam(name = "productId",required = false) int id) {
+    public ProductDTO getById(@RequestParam(name = "productId",required = false) int id) {
         return productService.getById(id);
     }
 
@@ -42,8 +43,8 @@ public class ProductController {
     }
 
     @PutMapping("update/{id}")
-    public Product update(@RequestBody Product product, @PathVariable int id) {
-        return productService.update(product, id);
+    public Product update(@RequestBody UpdateProductRequest updateProductRequest, @PathVariable int id) throws ProductNotFoundException {
+        return productService.update(updateProductRequest, id);
     }
 
 }

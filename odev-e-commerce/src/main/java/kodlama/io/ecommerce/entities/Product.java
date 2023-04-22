@@ -8,7 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -29,4 +31,13 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     @JsonManagedReference //sonsuz döngü olmaması için
     private Set<Category> categories = new HashSet<>();
+
+
+    public void setActive(){
+        this.status=Status.AVAILABLE;
+    }
+    public void setNotActive(){
+        this.status=Status.UNAVAILABLE;
+    }
+
 }
