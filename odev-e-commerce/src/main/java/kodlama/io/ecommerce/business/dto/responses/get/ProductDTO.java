@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetProductResponse {
+public class ProductDTO {
     private int id;
     private String name;
     private int quantity;

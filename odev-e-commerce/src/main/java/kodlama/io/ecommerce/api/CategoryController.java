@@ -1,4 +1,4 @@
-package kodlama.io.ecommerce.api.controllers;
+package kodlama.io.ecommerce.api;
 
 import kodlama.io.ecommerce.business.abstracts.CategoryService;
 import kodlama.io.ecommerce.business.dto.requests.create.CreateCategoryRequest;
@@ -18,7 +18,7 @@ public class CategoryController {
     @PostMapping
     public CreateCategoryResponse create(@RequestBody CreateCategoryRequest request){
         return service.add(request);
-
     }
+
 
 }
