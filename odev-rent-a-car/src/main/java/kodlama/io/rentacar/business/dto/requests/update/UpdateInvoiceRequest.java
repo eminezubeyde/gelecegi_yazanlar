@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateInvoiceRequest {
-    @NotNull
-    private int carId;
     @NotBlank
     private String cardHolder;
     @NotBlank

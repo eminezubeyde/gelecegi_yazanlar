@@ -26,4 +26,5 @@ public class Rental {
     @ManyToOne
     @JoinColumn(name = "car_Id")
     private Car car;
+
 }

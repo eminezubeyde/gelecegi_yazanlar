@@ -27,4 +27,5 @@ public class Invoice {
     private double totalPrice;
     private int rentedForDays;
     private LocalDateTime rentedAt;
+
 }
