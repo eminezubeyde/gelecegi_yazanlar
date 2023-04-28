@@ -55,6 +55,9 @@ public class ProductManager implements ProductService {
         return product.get();
     }
 
+
+
+
     @Override
     public List<ProductDTO> getAll() {
 
