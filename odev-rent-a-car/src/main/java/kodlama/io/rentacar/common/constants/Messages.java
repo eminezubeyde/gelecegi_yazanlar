@@ -1,43 +1,44 @@
 package kodlama.io.rentacar.common.constants;
 
 public class Messages {
-    public static class Brand{
-        public static final String BRAND_NOT_FOUND = "Marka bulunamadı!";
-        public static final String BRAND_ALREADY_EXISTS = "Böyle bir marka mevcut!";
+    public static class Car {
+        public static final String NotExists = "CAR_NOT_EXISTS";
+        public static final String Exists = "CAR_ALREADY_EXISTS";
+        public static final String NotAvailable = "CAR_NOT_AVAILABLE";
+        public static final String PlateExists = "PLATE_ALREADY_EXISTS";
+        public static final String PlateNotValid = "plate number must match the pattern";
     }
 
-    public static class Car{
-        public static final String CAR_NOT_FOUND = "Araç bulunamadı!";
-        public static final String CAR_IS_NOT_AVAILABLE = "Araç kirada olduğu için bakıma alınamaz!";
+    public static class Model {
+        public static final String NotExists = "MODEL_NOT_EXISTS";
+        public static final String Exists = "MODEL_ALREADY_EXISTS";
     }
 
-    public static class Invoice{
-        public static final String INVOICE_NOT_FOUND = "Fatura bulunamadı!";
+    public static class Brand {
+        public static final String NotExists = "BRAND_NOT_EXISTS";
+        public static final String Exists = "BRAND_ALREADY_EXISTS";
     }
 
-    public static class Maintenance{
-        public static final String MAINTENANCE_NOT_FOUND = "Bakım bulunamadı!";
-        public static final String CAR_UNDER_THE_MAINTENANCE = "Araç şuanda bakımda!";
+    public static class Maintenance {
+        public static final String NotExists = "MAINTENANCE_NOT_EXISTS";
+        public static final String CarExists = "CAR_IS_CURRENTLY_UNDER_MAINTENANCE";
+        public static final String CarNotExists = "CAR_NOT_REGISTERED_FOR_MAINTENANCE";
+        public static final String CarIsRented = "CAR_IS_CURRENTLY_RENTED_AND_CANNOT_BE_SERVICED_FOR_MAINTENANCE";
     }
 
-    public static class Model{
-        public static final String MODEL_NOT_FOUND = "Model bulunamadı!";
-        public static final String MODEL_ALREADY_EXISTS = "Böyle bir model mevcut!";
+    public static class Rental {
+        public static final String NotExists = "RENTAL_NOT_EXISTS";
     }
 
-    public static class Payment{
-        public static final String PAYMENT_NOT_FOUND = "Ödeme bilgisi bulunamadı.";
-        public static final String INSUFFICIENT_BALANCE = "Yetersiz bakiye.";
-        public static final String CARD_NUMBER_ALREADY_EXISTS = "Kart numarası zaten kayıtlı.";
-        public static final String CARD_INFORMATION_INCORRECT = "Kart bilgileriniz hatalı.";
+    public static class Payment {
+        public static final String NotFound = "PAYMENT_NOT_FOUND";
+        public static final String CardNumberAlreadyExists = "CARD_NUMBER_ALREADY_EXISTS";
+        public static final String NotEnoughMoney = "NOT_ENOUGH_MONEY";
+        public static final String NotAValidPayment = "NOT_A_VALID_PAYMENT";
+        public static final String Failed = "PAYMENT_FAILED";
     }
 
-    public static class Rental{
-        public static final String RENTAL_NOT_FOUND = "Kiralama bilgisine ulaşılamadı.";
-
-    }
-
-    private Messages(){
-
+    public static class Invoice {
+        public static final String NotFound = "INVOICE_NOT_FOUND";
     }
 }
