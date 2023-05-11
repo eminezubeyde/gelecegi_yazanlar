@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateInvoiceRequest {
-    @NotNull
-    private int carId;
     @NotBlank
     private String cardHolder;
     @NotBlank
@@ -25,13 +23,10 @@ public class UpdateInvoiceRequest {
     private String brandName;
     @NotBlank
     private String plate;
-    @NotNull
-    @Min(2006)
+    @Min(1996)
     private int modelYear;
-    @NotNull
     @Min(0)
     private double dailyPrice;
-    @NotNull
     @Min(0)
     private int rentedForDays;
     private LocalDateTime rentedAt;
