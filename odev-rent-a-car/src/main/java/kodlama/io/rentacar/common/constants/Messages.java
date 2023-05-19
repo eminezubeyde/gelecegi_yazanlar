@@ -41,4 +41,5 @@ public class Messages {
     public static class Invoice {
         public static final String NotFound = "INVOICE_NOT_FOUND";
     }
+
 }

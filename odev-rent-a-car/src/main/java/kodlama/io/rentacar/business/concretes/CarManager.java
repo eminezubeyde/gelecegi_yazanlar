@@ -7,6 +7,7 @@ import kodlama.io.rentacar.business.dto.responses.create.CreateCarResponse;
 import kodlama.io.rentacar.business.dto.responses.get.car.GetAllCarsResponse;
 import kodlama.io.rentacar.business.dto.responses.get.car.GetCarResponse;
 import kodlama.io.rentacar.business.dto.responses.update.UpdateCarResponse;
+import kodlama.io.rentacar.common.constants.Messages;
 import kodlama.io.rentacar.entities.Car;
 import kodlama.io.rentacar.entities.enums.State;
 import kodlama.io.rentacar.repository.CarRepository;
@@ -45,6 +46,7 @@ public class CarManager implements CarService {
 
     @Override
     public CreateCarResponse add(CreateCarRequest request) {
+
         Car car = mapper.map(request, Car.class);
         car.setId(0);
         car.setState(State.AVAILABLE);

@@ -1,5 +1,6 @@
 package kodlama.io.rentacar.api.controllers;
 
+import jakarta.validation.Valid;
 import kodlama.io.rentacar.business.abstracts.BrandService;
 import kodlama.io.rentacar.business.dto.requests.create.CreateBrandRequest;
 import kodlama.io.rentacar.business.dto.requests.update.UpdateBrandRequest;
@@ -33,7 +34,7 @@ public class BrandsController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateBrandResponse add(@RequestBody CreateBrandRequest request) {
+    public CreateBrandResponse add(@Valid @RequestBody CreateBrandRequest request) {
         return brandService.add(request);
     }
 

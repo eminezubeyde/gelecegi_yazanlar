@@ -1,5 +1,6 @@
 package kodlama.io.rentacar.api.controllers;
 
+import jakarta.validation.Valid;
 import kodlama.io.rentacar.business.abstracts.InvoiceService;
 import kodlama.io.rentacar.business.dto.requests.create.CreateInvoiceRequest;
 import kodlama.io.rentacar.business.dto.requests.update.UpdateInvoiceRequest;
@@ -32,7 +33,7 @@ public class InvoicesController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateInvoiceResponse add(@RequestBody CreateInvoiceRequest request) {
+    public CreateInvoiceResponse add(@Valid @RequestBody CreateInvoiceRequest request) {
         return service.add(request);
     }
 

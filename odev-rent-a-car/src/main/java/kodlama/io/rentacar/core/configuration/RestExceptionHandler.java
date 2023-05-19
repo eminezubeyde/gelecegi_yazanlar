@@ -39,7 +39,6 @@ public class RestExceptionHandler {
     public ExceptionResult<Object> handleBusinessException(BusinessException exception) {
         return new ExceptionResult<>(ExceptionTypes.Exception.Business, exception.getMessage());
     }
-
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT) // 409
     public ExceptionResult<Object> handleDataIntegrityViolationException(DataIntegrityViolationException exception) {
